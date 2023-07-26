@@ -1,0 +1,32 @@
+En este estudio, analizaremos la satisfacción de los viajeros de una compañía aérea, definiendo las variables del dataset de la siguiente manera:
+1.	Género: Género de los pasajeros (Femenino, Masculino).
+2.	Tipo de cliente: Categoría del cliente (cliente fiel, cliente desleal).
+3.	Edad: Edad real de los pasajeros.
+4.	Tipo de Viaje: Propósito del vuelo de los pasajeros (Viaje Personal, Viaje de Negocios).
+5.	Clase: Clase de viaje en el avión de los pasajeros (Business, Eco, Eco Plus).
+6.	Distancia de vuelo: Distancia del viaje en vuelo.
+7.	Servicio wifi a bordo: Nivel de satisfacción del servicio wifi a bordo (0: No aplicable; 1-5).
+8.	Hora de salida/llegada conveniente: Nivel de satisfacción con los horarios de salida y llegada.
+9.	Facilidad de reserva en línea: Nivel de satisfacción con la reserva en línea.
+10.	Ubicación de la puerta: Nivel de satisfacción con la ubicación de la puerta.
+11.	Alimentos y bebidas: Nivel de satisfacción con los alimentos y bebidas.
+12.	Embarque en línea: Nivel de satisfacción con el proceso de embarque en línea.
+13.	Comodidad del asiento: Nivel de satisfacción con la comodidad del asiento.
+14.	Entretenimiento a bordo: Nivel de satisfacción con las opciones de entretenimiento a bordo.
+15.	Servicio a bordo: Nivel de satisfacción con el servicio durante el vuelo.
+16.	Servicio de sala de piernas: Nivel de satisfacción con el servicio de sala de piernas.
+17.	Manejo de equipaje: Nivel de satisfacción con el manejo del equipaje.
+18.	Servicio de Check-in: Nivel de satisfacción con el servicio de Check-in.
+19.	Limpieza: Nivel de satisfacción con la limpieza del avión.
+20.	Retraso de salida en minutos: Minutos de retraso en la salida del vuelo.
+21.	Retraso de llegada en minutos: Minutos de retraso en la llegada del vuelo.
+
+Para comenzar el análisis, estableceremos el índice del dataset utilizando la columna de ID. Luego, verificaremos si hay datos nulos en las columnas utilizando el método isna().sum(). En caso de existir nulos, los sustituiremos por la media correspondiente.
+Después, evaluaremos si las variables objetivo (satisfied/natural o disatisfied) están balanceadas. Observamos que la distribución es 56% y 43%, respectivamente. A continuación, convertiremos las variables categóricas en variables numéricas utilizando el método get_dummies, reemplazando los "True" con 1 y los "False" con 0. Posteriormente, uniremos los dataframes original y el obtenido tras el get_dummies mediante el método concat().
+
+Pasaremos ahora a la etapa de Machine Learning. Definiremos nuestra variable objetivo y la convertiremos en 0 para "natural o disatisfied" y 1 para "satisfied". En todos los modelos utilizaremos el train_test_split y mediremos el rendimiento con las métricas de accuracy_score, confusion_matrix, precision_score, recall_score, classification_report y f1_score.
+Los modelos que emplearemos son: Lineal Regresión, Decision Tree, Random Forest, Adaboost, Catboost, Gradient Boosting, XGBoost, SVM y KNN.
+Después de analizar los resultados, concluimos que el modelo Random Forest presenta el mejor rendimiento, ya que muestra la menor cantidad de falsos positivos y falsos negativos en la matriz de confusión y las mejores métricas en general. Además, para este estudio, nos enfocaremos principalmente en la métrica de Accuracy, ya que la variable objetivo está balanceada.
+Continuaremos realizando Cross Validation sobre el modelo de Random Forest para asegurar la robustez de los resultados. Finalmente, llevaremos a cabo el Grid Search para optimizar los hiperparámetros del modelo y obtener la configuración más adecuada.
+Y finalmente hemos creado una API donde podemos predecir los resultados:
+http://aviones.h6hyfrgzhvbugrfz.westeurope.azurecontainer.io/

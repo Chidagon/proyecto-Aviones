@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="home">
+            <h1>SATISFACCIÓN DE LOS VIAJEROS</h1>
+            <h3>Age , Flight Distance, Departure Delay in minutes y Arrival Delay in minutes son valores numéricos que debemos introducir<h3>
+            <h3>Las variables que no son preguntas van del 0(muy deficiente) al 5(sobresaliente)</h3>
+            <h3>Las variables que son preguntas se responden si es afirmativo con un 1 y se es negativo un 0</h3>
+        </div>    
+    <form action="{{ url_for('predict')}}" method="post">
+    <input type="text" name="age"  placeholder="age"  required="required">
+    <input type="text" name="Flight Distance"  placeholder="Flight Distance"  required="required">
+    <input type="text" name="Inflight wifi service"  placeholder="Inflight wifi service"  required="required">
+    <input type="text" name="Departure/Arrival time convenient"  placeholder="Departure/Arrival time convenient"  required="required">
+    <input type="text" name="Ease of Online booking"  placeholder="Ease of Online booking"  required="required">
+    <input type="text" name="Gate location"  placeholder="Gate location"  required="required">
+    <input type="text" name="Food and drink"  placeholder="Food and drink"  required="required">
+    <input type="text" name="Online boarding"  placeholder="Online boarding"  required="required">
+    <input type="text" name="Seat comfort"  placeholder="Seat comfort"  required="required">
+    <input type="text" name="Inflight entertainment"  placeholder="Inflight entertainment"  required="required">
+    <input type="text" name="On-board service"  placeholder="On-board service"  required="required">
+    <input type="text" name="Leg room service"  placeholder="Leg room service"  required="required">
+    <input type="text" name="Baggage handling"  placeholder="Baggage handling"  required="required">
+    <input type="text" name="Checkin service"  placeholder="Checkin service"  required="required">
+    <input type="text" name="Inflight service"  placeholder="Inflight service"  required="required">
+    <input type="text" name="Cleanliness"  placeholder="Cleanliness"  required="required">
+    <input type="text" name="Departure Delay in Minutes"  placeholder="Departure Delay in Minutes"  required="required">
+    <input type="text" name="Arrival Delay in Minutes"  placeholder="Arrival Delay in Minutes"  required="required">
+    <input type="text" name="Gender_female"  placeholder="is female?"  required="required">
+    <input type="text" name="Gender_male"  placeholder="is male?"  required="required">
+    <input type="text" name= "Customer Type_Loyal Customer"  placeholder="is loyal customer?"  required="required">
+    <input type="text" name='Customer Type_disloyal Customer'  placeholder="is disloyal Customer?"  required="required">
+    <input type="text" name="Type of Travel_Business travel"  placeholder="is Business travel?"  required="required">
+    <input type="text" name="Type of Travel_Personal Travel"  placeholder="is personal travel?"  required="required">
+    <input type="text" name="Class_Eco"  placeholder="is class Eco?"  required="required">
+    <input type="text" name="Class_Eco Plus"  placeholder="is class Eco Plus?"  required="required">
+    <input type="text" name="Class_Eco Premier"  placeholder="is class Eco Premier?"  required="required">
+     
+    <button type="submit">Predict</button>
+
+    </form>
+<br><br>
+{{ prediction_text }}
+</body>
+</html>
